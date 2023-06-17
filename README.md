@@ -1,4 +1,10 @@
-![](https://raw.githubusercontent.com/LafeLabs/sign/main/trashmagic/asabovesobelow.png)
+![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/HYPERSIGN.png)
+
+REPLICATOR URL:
+
+```
+https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/php/replicator.txt
+```
 
 # [CARDBOARD HYPERSIGN!](https://github.com/lafeLabs/HYPERSIGN)
 
