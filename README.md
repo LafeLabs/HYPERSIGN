@@ -1,5 +1,7 @@
 ![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/HYPERSIGN.png)
 
+![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/CSS.png)
+
 REPLICATOR URL:
 
 ```
