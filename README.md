@@ -44,3 +44,12 @@ WE WILL BUILD A TRULY FREE NETWORK! A NETWORK WITHOUT PROPERTY! A NETWORK WITHOU
  - [ISTICK!](https://github.com/LafeLabs/ISTICK/)
  - [TRASH ROBOT HOME PAGE!](https://www.trashrobot.org)
 
+
+# ELEMENTS OF CYBERMAGIC
+
+ - [EARTH 🜃 GEOMETRON](https://github.com/LafeLabs/square/blob/main/geometron.js)
+ - [AIR 🜁 CSS](https://github.com/LafeLabs/HYPERSIGN/blob/main/trashmagic.css)
+ - [WATER 🜄 HTML](https://github.com/LafeLabs/HYPERSIGN/blob/main/index.html)
+ - [FIRE 🜂 JS](https://github.com/LafeLabs/HYPERSIGN/blob/main/trashmagic.js)
+ - [AETHER ☉  PHP](https://github.com/LafeLabs/HYPERSIGN/blob/main/replicator.php)
+ 
