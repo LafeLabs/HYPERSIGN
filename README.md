@@ -6,6 +6,8 @@
 
 ![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/SIGNSTACK.png)
 
+![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/META.png)
+
 REPLICATOR URL:
 
 ```
