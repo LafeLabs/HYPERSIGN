@@ -45,6 +45,12 @@ foreach($dna->php as $value){
 ?>
 <a href = "index.html">CLICK TO GO TO PAGE</a>
 <style>
+body{
+    background-color:#9f8767;
+    font-family:Comic Sans MS;
+    font-size:3em;
+}
+
 a{
     font-size:3em;
 }

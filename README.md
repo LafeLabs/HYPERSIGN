@@ -2,6 +2,7 @@
 
 ![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/CSS.png)
 
+![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/ARRAY.png)
 
 ![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/SIGNSTACK.png)
 
