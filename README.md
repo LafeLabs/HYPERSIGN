@@ -53,7 +53,7 @@ WE WILL BUILD A TRULY FREE NETWORK! A NETWORK WITHOUT PROPERTY! A NETWORK WITHOU
 
 # ELEMENTS OF CYBERMAGIC
 
- - [EARTH 🜃 GEOMETRON](https://github.com/LafeLabs/square/blob/main/geometron.js)
+ - [EARTH 🜃 GEOMETRON](https://raw.githubusercontent.com/LafeLabs/bookofgeometron/main/main-bigpaper.pdf)
  - [AIR 🜁 CSS](https://github.com/LafeLabs/HYPERSIGN/blob/main/trashmagic.css)
  - [WATER 🜄 HTML](https://github.com/LafeLabs/HYPERSIGN/blob/main/index.html)
  - [FIRE 🜂 JS](https://github.com/LafeLabs/HYPERSIGN/blob/main/trashmagic.js)
