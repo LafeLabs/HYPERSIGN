@@ -15,7 +15,7 @@
 <script src = "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>    
-
+<div id = "mushroom" style = "font-size:10em;cursor:pointer;">🍄CLICK ME🍄</div>
 <a id= "toplink" href = "index.html">HOME</a>
 
 <table style = "display:none">
@@ -40,9 +40,15 @@ fontsize = 12;
 
 //globalurl = "http://www.trashrobot.org/qrcode.html";
 globalurl = window.location.href.split("qrcode-page.html")[0];
-globalurl = "https://www.southplatte.net";
-urltext = globalurl;
-urltext = "TRASH MAGIC<BR>HYPERSIGN<BR>SOUTHPLATTE.NET";
+//globalurl = "https://www.southplatte.net";
+//urltext = globalurl;
+capsurl = globalurl.toUpperCase();
+capsurl = capsurl.replace("HTTPS://","");
+capsurl = capsurl.replace("HTTP://","");
+capsurl = capsurl.replace("/","<BR/>");
+//console.log(capsurl);
+//urltext = "TRASH MAGIC<BR>HYPERSIGN<BR>SOUTHPLATTE.NET";
+urltext = "TRASH MAGIC<BR>HYPERSIGN<BR>"  + capsurl;
 
 document.getElementById("urlinput").value = "";
 document.getElementById("textinput").value = "";
@@ -80,9 +86,10 @@ qrcode = new QRCode(document.getElementById("qrcode"), {
 
 pngcode = document.getElementById("qrcode").getElementsByTagName("IMG")[0].src;
 qrcode.makeCode(globalurl);
-document.getElementsByTagName("IMG")[0].onload = function(){
-loadtable();
-    
+
+document.getElementById("mushroom").onclick = function(){
+    this.style.display = "none";
+    loadtable();
 }
 
 
@@ -129,7 +136,7 @@ input{
 body{
 
     background-color:#9f8767;
-
+font-family:Comic Sans MS;
 }
 canvas,img{
 }
@@ -141,7 +148,7 @@ canvas,img{
 }
 a{
     font-family:Comic Sans MS;
-        color:#ff2cb4;
+    color:#ff2cb4;
 
 }
 .urltext{
