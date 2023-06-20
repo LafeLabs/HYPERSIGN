@@ -4,6 +4,7 @@
         "board.html",
         "board.txt",
         "fork.html",
+        "geometron.js",
         "index.html",
         "qrcode-page.html",
         "qrcode.html",
