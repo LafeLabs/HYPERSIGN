@@ -14,6 +14,9 @@
 
 ![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/MEMEFEED.png)
 
+![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/INTERNETOFTRASH.png)
+
+
 REPLICATOR URL:
 
 ```
