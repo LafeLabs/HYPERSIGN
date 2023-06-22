@@ -45,7 +45,7 @@ globalurl = window.location.href.split("qrcode-page.html")[0];
 capsurl = globalurl.toUpperCase();
 capsurl = capsurl.replace("HTTPS://","");
 capsurl = capsurl.replace("HTTP://","");
-capsurl = capsurl.replace("/","/<BR/>");
+capsurl = capsurl.replace(/\//g,"/<BR/>");
 
 //console.log(capsurl);
 //urltext = "TRASH MAGIC<BR>HYPERSIGN<BR>SOUTHPLATTE.NET";
