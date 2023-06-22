@@ -8,6 +8,12 @@
 
 ![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/META.png)
 
+
+![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/STARBUCKS.png)
+
+
+![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/MEMEFEED.png)
+
 REPLICATOR URL:
 
 ```
