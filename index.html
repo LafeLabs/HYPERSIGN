@@ -57,6 +57,9 @@ capsurl = globalurl.toUpperCase();
 capsurl = capsurl.replace("HTTPS://","");
 capsurl = capsurl.replace("HTTP://","");
 capsurl = capsurl.replace(/\//g,"/<BR/>");
+
+capsurl = capsurl.replace("INDEX.HTML","");
+
 document.getElementById("header").innerHTML = capsurl;
 
 var httpc2 = new XMLHttpRequest();
