@@ -17,6 +17,11 @@
 ![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/INTERNETOFTRASH.png)
 
 
+![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/TRASHPHONEFEED.png)
+
+![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/SOUTHPLATTE.png)
+
+
 REPLICATOR URL:
 
 ```
