@@ -22,6 +22,17 @@
 ![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/SOUTHPLATTE.png)
 
 
+![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/SBUX.png)
+
+![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/RECURSION.png)
+
+![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/STONE.png)
+
+![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/NETWORK.png)
+
+![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/CYBERTRASH.png)
+
+
 REPLICATOR URL:
 
 ```
