@@ -34,6 +34,8 @@
 
 ![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/ANTICLOUD.png)
 
+![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/FREERIDE.png)
+
 
 REPLICATOR URL:
 
