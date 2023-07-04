@@ -1,3 +1,5 @@
+[FOLLOW TRASH ROBOT ON MASTODON!](https://kolektiva.social/@trashrobot)
+
 ![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/HYPERSIGN.png)
 
 ![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/CSS.png)
