@@ -6,6 +6,7 @@
         "fork.html",
         "geometron.js",
         "index.html",
+        "mutate.html",
         "qrcode-page.html",
         "qrcode.html",
         "readme.html",
@@ -20,6 +21,7 @@
         "dna.txt"
     ],
     "php": [
+        "copy.txt",
         "deletefile.txt",
         "dir.txt",
         "dnagenerator.txt",
