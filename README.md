@@ -1,4 +1,12 @@
+
 [FOLLOW TRASH ROBOT ON MASTODON!](https://kolektiva.social/@trashrobot)
+
+[WWW.TRASHROBOT.ORG](HTTPS://WWW.TRASHROBOT.ORG/)
+
+[FOLLOW TRASH ROBOT ON TIKTOK!](https://www.tiktok.com/@trash_robot)
+
+[EMAIL TRASH ROBOT!](mailto:operator@sloanslake.art)
+
 
 ![](https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/trashmagic/HYPERSIGN.png)
 
