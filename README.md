@@ -3,6 +3,8 @@
 
 [WWW.TRASHROBOT.ORG](HTTPS://WWW.TRASHROBOT.ORG/)
 
+[READ THE BOOK OF TRASH!](HTTPS://TRASHBOOK.TRASHROBOT.ORG/)
+
 [FOLLOW TRASH ROBOT ON TIKTOK!](https://www.tiktok.com/@trash_robot)
 
 [EMAIL TRASH ROBOT!](mailto:operator@sloanslake.art)
