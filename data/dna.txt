@@ -5,6 +5,7 @@
         "board.txt",
         "fork.html",
         "geometron.js",
+        "images.html",
         "index.html",
         "mutate.html",
         "qrcode-page.html",
@@ -31,6 +32,7 @@
         "mkdir.txt",
         "rdelete.txt",
         "replicator.txt",
-        "text2php.txt"
+        "text2php.txt",
+        "uploadimage.txt"
     ]
 }
