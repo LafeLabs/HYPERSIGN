@@ -95,6 +95,16 @@ WE WILL BUILD A TRULY FREE NETWORK! A NETWORK WITHOUT PROPERTY! A NETWORK WITHOU
  - [ISTICK!](https://github.com/LafeLabs/ISTICK/)
  - [TRASH ROBOT HOME PAGE!](https://www.trashrobot.org)
 
+TO MAKE A FOLDER ON THE DESKTOP WHICH IS LINKED TO THE FOLDER WITH ALL THE HTML IN IT, USE THE ln COMMAND:
+
+```
+ln -s /var/www/html/ /home/username/Desktop
+```
+MORE FOLDERS CAN BE ADDED WITH THE SAME METHOD AS FOLLOWS, EG:
+
+```
+ln -s /var/www/html/FREEMIXTAPE/mixtape/ /home/username/Desktop
+```
 
 # ELEMENTS OF CYBERMAGIC
 
