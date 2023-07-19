@@ -44,7 +44,7 @@ var httpc2 = new XMLHttpRequest();
         for(var index = 0;index < scrolls.length;index++) {
             if(scrolls[index] != "home"){
                 var newspan = document.createElement("SPAN");
-                newspan.innerHTML = "scrolls/" + scrolls[index];
+                newspan.innerHTML = "pages/" + scrolls[index];
                 var newli = document.createElement("LI");
                 newli.appendChild(newspan);
                 document.getElementById("mainlist").appendChild(newli);
@@ -55,7 +55,7 @@ var httpc2 = new XMLHttpRequest();
     }
 };
 
-httpc2.open("GET", "dir.php?filename=scrolls", true);
+httpc2.open("GET", "dir.php?filename=pages", true);
 httpc2.send();
 
 

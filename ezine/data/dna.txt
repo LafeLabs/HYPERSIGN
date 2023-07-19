@@ -1,29 +1,17 @@
 {
     "html": [
         "README.md",
-        "board.html",
-        "books.html",
-        "distro.html",
         "fork.html",
         "forkdestroyer.html",
-        "images.html",
         "index.html",
-        "label.html",
-        "linkeditor.html",
-        "links.html",
         "mutate.html",
         "podcast.html",
-        "publicdark.html",
-        "publicpage.html",
         "qrcode-page.html",
         "qrcode.html",
         "readme.html",
         "readmeeditor.html",
         "replicators.html",
         "scrolldelete.html",
-        "scrolleditor.html",
-        "scrolls.html",
-        "scrollset.html",
         "trashmagic.html",
         "trashrobot.html",
         "webdestroyer.html",
@@ -45,14 +33,7 @@
         "mkdir.txt",
         "rdelete.txt",
         "rdir.txt",
-        "removephp.txt",
         "replicator.txt",
-        "scrolleditor.txt",
-        "scrollsetreplicator.txt",
-        "setreplicator.txt",
         "text2php.txt"
-    ],
-    "scrolls": [
-        "home"
     ]
 }

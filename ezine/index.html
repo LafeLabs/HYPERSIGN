@@ -95,8 +95,7 @@ rawhtml = "";
 document.getElementById("newscrollinput").value = "";
 
 
-
-currentfile = "scrolls/home";
+currentfile = "pages/home";
 var httpc = new XMLHttpRequest();
 httpc.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -137,7 +136,7 @@ if (this.readyState == 4 && this.status == 200) {
     for(var index = 0;index < scrolls2.length;index++) {    
         var newscrollbutton = document.createElement("div");
         newscrollbutton.className = "scrollbutton";
-        newscrollbutton.innerHTML = "scrolls/" + scrolls2[index];
+        newscrollbutton.innerHTML = "pages/" + scrolls2[index];
         document.getElementById("feedscroll").appendChild(newscrollbutton);
         newscrollbutton.onclick = function(){
             document.getElementById("newscrollinput").value = "";
@@ -159,14 +158,14 @@ if (this.readyState == 4 && this.status == 200) {
     }
 };
 
-httpc8.open("GET", "dir.php?filename=scrolls", true);
+httpc8.open("GET", "dir.php?filename=pages", true);
 httpc8.send();
 
 name = "";
 
 document.getElementById("newscrollinput").onchange = function(){
     name = this.value;
-    currentfile = "scrolls/" + this.value;
+    currentfile = "pages/" + this.value;
     document.getElementById("currentfilename").innerHTML = currentfile; 
     
     var httpc = new XMLHttpRequest();
@@ -255,42 +254,6 @@ document.getElementById("menubutton").onclick = function(){
     }
 }
 
-
-scrollset = {};
-
-var httpc = new XMLHttpRequest();
-    httpc.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        scrollset = JSON.parse(this.responseText);
-        if(scrollset.server.charAt(scrollset.server.length-1) != "/"){
-            scrollset.server = scrollset.server + "/"; 
-        }
-        var httpc9 = new XMLHttpRequest();
-        httpc9.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-
-                scrolls = JSON.parse(this.responseText);
-                scrollset.scrolls = scrolls;
-                savejson();
-
-            };
-        }
-        
-        httpc9.open("GET", "dir.php?filename=scrolls", true);
-        httpc9.send();
-        
-    }
-};
-httpc.open("GET", "fileloader.php?filename=data/scrollset.txt", true);
-httpc.send();
-
-function savejson(){
-    var url = "filesaver.php";        
-    var httpc2 = new XMLHttpRequest();
-    httpc2.open("POST", url, true);
-    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc2.send("data="+encodeURIComponent(JSON.stringify(scrollset,null,"    "))+"&filename=data/scrollset.txt");//send text to filesaver.php
-}
 
 
 codesquaresize = 170;

@@ -13,7 +13,7 @@
     
     mkdir("data");
     mkdir("php");
-    mkdir("scrolls");
+    mkdir("pages");
 
 
     copy("https://raw.githubusercontent.com/LafeLabs/HYPERSIGN/main/ezine/php/replicator.txt","replicator.php");
