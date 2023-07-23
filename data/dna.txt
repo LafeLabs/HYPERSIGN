@@ -5,6 +5,7 @@
         "board.txt",
         "fork.html",
         "geometron.js",
+        "hypercube.html",
         "images.html",
         "index.html",
         "mutate.html",
