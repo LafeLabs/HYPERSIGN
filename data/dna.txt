@@ -3,6 +3,7 @@
         "README.md",
         "board.html",
         "board.txt",
+        "cards.html",
         "draw.html",
         "fork.html",
         "geometron.js",
