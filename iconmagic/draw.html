@@ -33,7 +33,7 @@
 
 <div id = "qrcode"></div>
 
-<a style = "position:absolute;left:0px;bottom:0px;z-index:1;width:8em;text-align:center;color:blue;font-size:2em" href ="hypercube.html">HYPERCUBE</a>
+<a style = "position:absolute;left:0px;bottom:0px;z-index:1;width:10em;text-align:center;color:blue;" href ="hypercube.html">HYPERCUBE</a>
 
 
 <script>
@@ -46,7 +46,7 @@ function setup() {
     createCanvas(innerWidth, innerHeight);
     background(159,135,103);
     stroke(0);
-    strokeWeight(16);
+    strokeWeight(6);
     var httpcjson = new XMLHttpRequest();
     httpcjson.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {

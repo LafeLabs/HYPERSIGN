@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--
+
+        EVERYTHING IS PHYSICAL 
+        EVERYTHING IS FRACTAL
+        EVERYTHING IS RECURSIVE
+        NO MONEY 
+        MO MINING 
+        NO PROPERTY
+        LOOK AT THE INSECTS
+        LOOK AT THE FUNGI
+        LANGUAGE IS HOW THE MIND PARSES REALITY
+
+    -->
+    
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/wAAAAD//wAA/wAAAAD/AP8A/wAApv8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFUAAARGAAIxFVUABEYAAjMRFQAARGYiIjMRAABERmZiIzEAAARERGZiMwAAAARERGYiAAAAAABERiL4PwAA+78AAPu/AAD33wAA9V8AAPVfAAD1XwAA998AAOADAADhAAAA4AAAAPAAAADwAAAA+AAAAP4AAAD/wAAA" rel="icon" type="image/x-icon" />
+    
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+<!--geometron javascript library-->
+    <script src="geometron.js"></script>
+
+</head>
+<body>
+
+<a style = "position:absolute;right:0px;top:0px;font-size:2em;color:blue" href = "index.html">HOME</a>
+
+<input id  = "actioninput"/>
+
+<table id = "controltable">
+</table>
+
+<div id = "geometronbox">
+    <canvas id = "maincanvas"></canvas>
+</div>
+
+<style>
+body{
+    overflow:hidden;
+    background-color:#9f8767;
+    font-family:Comic Sans MS;
+}
+#hidebutton{
+    position:absolute;
+    right:0px;
+    top:0px;
+    border:solid;
+    border-radius:5px;    
+}
+#readmelink{
+    position:absolute;
+    right:10px;
+    top:25px;
+    color:#0000ff;
+}
+#geometronbox{
+    position:absolute;
+    right:0px;
+    top:0px;
+    z-index:-1;
+}
+#map{
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:100%;
+    z-index:-3;
+}
+#linkbox{
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+#linkbox a{
+    position:absolute;
+    border:solid;
+    z-index:2;
+}
+#linkbox span{
+    position:absolute;
+    border:solid;
+    z-index:1;
+}
+#buttontable{
+    position:relative;
+    z-index:2;
+}
+#buttontable td{
+    border:solid;
+    text-align:center;
+    border-radius:5px;
+}
+#buttontable input{
+    width:90%;
+    background-color:#00000000;
+}
+#controltable{
+    position:absolute;
+    left:0px;
+    bottom:0px;
+}
+.button{
+    cursor:pointer;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
+}
+.data{
+    display:none;
+}
+#actioninput{
+    width:10px;
+    position:absolute;
+    left:0px;
+    top:0px;
+}
+@media only screen and (orientation: portrait) {
+    #actioninput{
+        display:none;
+    }
+}
+</style>
+
+<script>
+
+glyph = "";
+
+arrow = "0313,0336,0331,0333,0337,0200,0336,0330,0332,0337,";
+
+shapestack = [
+    "0220:0336,0331,0333,0337,0200,0336,0330,0332,0336,0331,0333,0337,0200,0350,0335,0335,0335,0310,0336,0342,0334,0334,0334,0336,0330,0330,0335,0337,0342,0335,0336,0331,0331,0334,0334,0334,0337,0342,0335,0336,0331,0331,0334,0334,0334,0337,0342,0335,0335,0335,0335,0330,0334,0337,0304,0313,0337,",
+    "0224:0330,0220,",
+    "0225:0331,0220,",
+    "0226:0332,0220,",
+    "0227:0333,0220,",
+    "01224:0333,0200,0336,0330,0332,0336,0220,0224,0337,0331,0336,0331,0333,0333,0337,0337,",
+    "01225:0333,0200,0336,0330,0332,0336,0220,0225,0331,0333,0333,0337,0337,",
+    "01226:0333,0200,0336,0330,0332,0336,0220,0226,0333,0333,0331,0333,0331,0337,0337,",
+    "01227:0333,0200,0336,0330,0332,0336,0220,0227,0331,0331,0333,0337,0337,"
+];
+
+
+maincanvas = document.getElementById("maincanvas");
+
+square = 100;
+if(innerWidth > innerHeight){
+    square = innerHeight;
+}
+else{
+    square = innerWidth;
+}
+
+var mainGVM = new GVM(maincanvas,innerWidth,innerHeight);
+
+
+//keyboard : asdw, zxcv, jkli uo, colors 1234567 
+
+
+keyboard = [
+    "041:0177,",
+    "042:0236,",
+    "043:0177,",
+    "044:0177,",
+    "045:0177,",
+    "046:0177,",
+    "047:0177,",
+    "050:0177,",
+    "051:0177,",
+    "052:0177,",
+    "053:0177,",
+    "054:0177,",
+    "055:0177,",
+    "056:0177,",
+    "057:0177,",
+    "060:035,",
+    "061:0320,",
+    "062:0322,",
+    "063:0323,",
+    "064:0324,",
+    "065:0325,",
+    "066:0326,",
+    "067:0327,",
+    "070:0177,",
+    "071:034,",
+    "072:0177,",
+    "073:0177,",
+    "074:0237,",
+    "075:0177,",
+    "076:0177,",
+    "077:0177",
+    "0100:0177,",
+    "0101:0230",
+    "0102:0234,",
+    "0103:0177,",
+    "0104:0232",
+    "0105:0177,",
+    "0106:0233",
+    "0107:0234",
+    "0110:0235",
+    "0111:0177,",
+    "0112:0236",
+    "0113:0237",
+    "0114:0177,",
+    "0115:0236,",
+    "0116:0235,",
+    "0117:0177,",
+    "0120:0177,",
+    "0121:0177,",
+    "0122:0177,",
+    "0123:0231",
+    "0124:0224,",
+    "0125:0226,",
+    "0126:0177,",
+    "0127:0177,",
+    "0130:0177,",
+    "0131:0225,",
+    "0132:0177,",
+    "0133:0177,",
+    "0134:0177,",
+    "0135:0177,",
+    "0136:0177,",
+    "0137:0177,",
+    "0140:0177,",
+    "0141:0226,",
+    "0142:0177,",
+    "0143:011,",
+    "0144:0227,",
+    "0145:0337,",
+    "0146:0333,",
+    "0147:0177,",
+    "0150:0177,",
+    "0151:030,",
+    "0152:032,",
+    "0153:031,",
+    "0154:033,",
+    "0155:0177,",
+    "0156:0177,",
+    "0157:037,",
+    "0160:0177,",
+    "0161:0336,",
+    "0162:0177,",
+    "0163:0225,",
+    "0164:0177,",
+    "0165:036,",
+    "0166:0223,",
+    "0167:0224,",
+    "0170:0221,",
+    "0171:0177,",
+    "0172:0220,",
+    "0173:0177,",
+    "0174:0177,",
+    "0175:0177,",
+    "0176:0177,"
+];
+
+topcontrols  = [
+    "011,010",
+    "0336,0224,0337",
+    "0226,0225,0227,",
+    "036,030,037,",
+    "032,031,033,"
+];
+
+
+
+
+mainGVM.importbytecode(hypercube);
+mainGVM.hypercube[0207] = arrow;
+mainGVM.importbytecode(keyboard);
+mainGVM.importbytecode(shapestack);
+mainGVM.glyph = "0207,";
+
+mainGVM.style.line0 = 10;
+mainGVM.unit = innerWidth/2;
+
+
+//drawmain();
+
+var httpc2 = new XMLHttpRequest();
+httpc2.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        glyph = this.responseText;
+        mainGVM.glyph = glyph + "0207,";
+        drawmain();
+    }
+};
+
+httpc2.open("GET", "fileloader.php?filename=glyph.txt", true);
+httpc2.send();
+
+
+function drawmain(){
+
+    mainGVM.drawGlyph(mainGVM.glyph);
+    glyph = mainGVM.cleanGlyph;    
+    saveglyph();
+    
+}
+
+document.getElementById("actioninput").onkeypress = function(a) {
+    var charCode = a.keyCode || a.which;
+
+    localCursorAction = parseInt(mainGVM.hypercube[charCode],8);   
+    mainGVM.cursorAction(localCursorAction);   
+    this.value = "";
+    mainGVM.clean();
+    drawmain();
+
+}
+
+
+document.getElementById("actioninput").onkeydown = function(a) {
+    var charCode = a.keyCode || a.which;
+
+    if(charCode == 010) {
+        mainGVM.cursorAction(010);
+    }
+    if(charCode == 040) {
+
+    }
+
+    mainGVM.clean();
+
+    drawmain();
+
+    
+}
+
+if(innerWidth > innerHeight){
+    document.getElementById("actioninput").select();
+}
+
+
+
+
+
+controlbuttonsize = 80;
+
+document.getElementById("controltable").innerHTML = "";
+for(var index = 0;index < topcontrols.length;index++){
+    var newtr = document.createElement("TR");
+    document.getElementById("controltable").appendChild(newtr);
+    rowarray = topcontrols[index].split(",");
+    for(var rowindex = 0;rowindex < rowarray.length;rowindex++){
+        if(rowarray[rowindex].length > 0){
+            var newtd = document.createElement("TD");
+            newtr.appendChild(newtd);
+            var newcan = document.createElement("CANVAS");
+            newtd.appendChild(newcan);
+            var datadiv = document.createElement("div");
+            datadiv.innerHTML = rowarray[rowindex];
+            datadiv.className = "data";
+            newtd.appendChild(datadiv);
+            var newGVM = new GVM(newcan,controlbuttonsize,controlbuttonsize);
+            newGVM.unit = controlbuttonsize - 2;
+            newGVM.x0 = 1;
+            newGVM.y0 = controlbuttonsize-1;
+            newGVM.importbytecode(hypercube);
+    
+            newGVM.importbytecode(shapestack);
+            newGVM.action(0300);
+            if(parseInt(rowarray[rowindex],8) >= 040 && parseInt(rowarray[rowindex],8) < 0177){
+                newGVM.drawGlyph("0300,0336,0336,0330,0333,0337,");
+            }
+            newGVM.action(parseInt(rowarray[rowindex],8)+01000);
+
+            newtd.onclick = function(){
+                var localaction = parseInt(this.getElementsByClassName("data")[0].innerHTML,8);
+                if(localaction != 022 && localaction != 023){
+                    if(localaction >= 040 && localaction < 0177){
+                        localaction += 01000;
+                    }
+                    mainGVM.cursorAction(localaction);
+                }
+
+                mainGVM.clean();
+
+                drawmain();
+
+
+            }
+            newcan.classList.add("button");
+        }
+    }
+}
+
+
+function saveglyph(){
+    var httpc = new XMLHttpRequest();
+    var url = "filesaver.php";        
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+    httpc.send("data="+encodeURIComponent(glyph)+"&filename=glyph.txt");//send text to filesaver.php  
+        
+}
+
+</script>
+</body>
+</html>
