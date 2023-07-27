@@ -33,9 +33,10 @@
     <div id = "linklist">
         <table id = "newtable">
             <tr>
-                <td>FORK NEW HYPERSIGN DOWN:</td>
+                <td>ENTER NAME OF NEW PAGE:</td>
                 <td><input/><a id = "dirlink"></a></td>
             </tr>
+
         </table>
 
         <ul id = "mainlist">
@@ -162,7 +163,8 @@ inputs[0].value = "";
 
 inputs[0].onchange = function() {
     dir = this.value;
-    dirlink.innerHTML = "mkdir.php?dir=" + this.value;
+    dirlink.innerHTML = "<BR>CLICK ME!";
+//    dirlink.innerHTML = "mkdir.php?dir=" + this.value;
     dirlink.href = "mkdir.php?dir=" + this.value;
 }
 

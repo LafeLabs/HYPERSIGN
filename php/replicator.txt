@@ -43,7 +43,7 @@ foreach($dna->php as $value){
 
 
 ?>
-<a href = "index.html">CLICK TO GO TO PAGE</a>
+<a href = "index.html">CLICK TO GO TO NEW PAGE</a>
 <style>
 body{
     background-color:#9f8767;
