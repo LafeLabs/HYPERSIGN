@@ -3,7 +3,6 @@
         "README.md",
         "board.html",
         "board.txt",
-        "draw.html",
         "fork.html",
         "geometron.js",
         "hypercube.html",
@@ -21,8 +20,7 @@
         "webeditor.html"
     ],
     "data": [
-        "dna.txt",
-        "lineArrayStack.txt"
+        "dna.txt"
     ],
     "php": [
         "copy.txt",
