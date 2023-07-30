@@ -4,6 +4,8 @@
         "board.html",
         "board.txt",
         "cards.html",
+        "crustbus.html",
+        "crustbus.txt",
         "draw.html",
         "fork.html",
         "geometron.js",
