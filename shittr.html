@@ -61,7 +61,7 @@ var httpc = new XMLHttpRequest();
         redraw();
     }
 };
-httpc.open("GET", "../fileloader.php?filename=shitpipe.txt", true);
+httpc.open("GET", "fileloader.php?filename=shitpipe.txt", true);
 httpc.send();
 
 
@@ -79,14 +79,14 @@ document.getElementById("textinput").onchange = function(){
             document.getElementById("textinput").value = "";    
         }
     };
-    httpc.open("GET", "../fileloader.php?filename=shitpipe.txt", true);
+    httpc.open("GET", "fileloader.php?filename=shitpipe.txt", true);
     httpc.send();   
 }
 
 
 
 function savejson(){
-    var url = "../filesaver.php";        
+    var url = "filesaver.php";        
     var httpc2 = new XMLHttpRequest();
     httpc2.open("POST", url, true);
     httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -139,7 +139,7 @@ function deletetext(){
             savejson();
         }
     };
-    httpc.open("GET", "../fileloader.php?filename=shitpipe.txt", true);
+    httpc.open("GET", "fileloader.php?filename=shitpipe.txt", true);
     httpc.send();            
 }
 
@@ -151,7 +151,7 @@ function loadfeed(){
                 redraw();
             }
         };
-        httpc.open("GET", "../fileloader.php?filename=shitpipe.txt", true);
+        httpc.open("GET", "fileloader.php?filename=shitpipe.txt", true);
         httpc.send();            
 
 }
