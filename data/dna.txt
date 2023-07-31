@@ -7,6 +7,7 @@
         "crustbus.html",
         "crustbus.txt",
         "draw.html",
+        "einstein.html",
         "fork.html",
         "geometron.js",
         "hypercube.html",
