@@ -9,16 +9,19 @@
 
 <a href = "hypercube.html" id = "homelink">GEOMETRON HYPERCUBE</a>
 
+
+<form id = "uploadform" style = "top:10px;position:absolute;right:10px;z-index:2" action="uploadimage.php" method="post" enctype="multipart/form-data">
+                Select image to upload:
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <input type="submit" value="Upload Image" name="submit">
+</form>
+        
 <div id = "mainbox">
     <img id = "mainimage"/>        
     <canvas  id = "maincanvas"></canvas>
 <br>
 
-<form id = "uploadform" style = "margin-top:10px" action="uploadimage.php" method="post" enctype="multipart/form-data">
-                Select image to upload:
-            <input type="file" name="fileToUpload" id="fileToUpload">
-            <input type="submit" value="Upload Image" name="submit">
-        </form>
+
 <table>
     <tr>
         <td>width[px]:</td>
@@ -130,8 +133,8 @@ body{
 }
 #homelink{
     position:absolute;
-    right:0px;
-    top:0px;
+    left:0px;
+    top:50%;
     z-index:2;
     color:blue;
     font-size:1.5em;
@@ -171,13 +174,13 @@ body{
 #imagescroll{
     position:absolute;
     right:0px;
-    top:0px;
+    top:3em;
     overflow:scroll;
-    width:29%;
+    width:70%;
     height:95%;
 }
 #imagescroll img{
-    max-width:50%;
+    max-width:80%;
     display:block;
     margin:auto;
     margin-top:1em;
