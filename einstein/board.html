@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <!-- 
+
+        EVERYTHING IS PHYSICAL 
+        EVERYTHING IS FRACTAL
+        EVERYTHING IS RECURSIVE
+        NO MONEY 
+        MO MINING 
+        NO PROPERTY
+        LOOK AT THE INSECTS
+        LOOK AT THE FUNGI
+        LANGUAGE IS HOW THE MIND PARSES REALITY
+
+    -->
+    <title>Trash Robot</title>
+
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAP//AP///wANAP8A5Dz6ABueRwAAt/8A6BonABo86AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAREREREREREREREAAAEREREREQCIgREREd3dwAAB3d3d3d3d3d3d3d3d3d3d3d3d3VVVVVVVQAFVVAAVVVQIiBRAiIBEQIAIBECAAERAgAgFgIABmYCIiBmAiIGZgIiIGYCIgZmYCIAaIAAMzMzAAiIiIiIiIiIiIiIiIiIiIiIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
+
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+</head>
+<body>
+    <a href = "index.html" id = "homelink">HOME</a>
+    <img id = "backgroundimage" src = "https://raw.githubusercontent.com/LafeLabs/square/main/trashmagic/pavement.png"/>
+    <textarea id = "board"></textarea>
+<div id = "qrcode"></div>
+
+<script>
+
+board = "";
+square = 100;
+
+if(innerWidth > innerHeight){
+    square = innerHeight - 100;
+    document.getElementById("board").style.top = "50px";
+    document.getElementById("board").style.left = ((innerWidth - square)/2 + 50).toString() + "px";
+}
+else{
+    square = innerWidth - 100;
+    document.getElementById("board").style.left = "50px";
+    document.getElementById("board").style.top = ((innerHeight - square)/2).toString() + "px";    
+}
+
+document.getElementById("board").style.width  = square.toString() + "px";
+document.getElementById("board").style.height = square.toString() + "px";
+
+var httpc2 = new XMLHttpRequest();
+httpc2.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        board = this.responseText;
+        document.getElementById("board").value = board;
+    }
+};
+
+httpc2.open("GET", "fileloader.php?filename=board.txt", true);
+httpc2.send();
+
+
+document.getElementById("board").onkeyup = function() {
+        board = this.value;
+        var httpc = new XMLHttpRequest();
+        var url = "filesaver.php";        
+        httpc.open("POST", url, true);
+        httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+        httpc.send("data="+encodeURIComponent(board)+"&filename=board.txt");//send text to filesaver.php        
+    
+}
+
+
+codesquaresize = 100;
+marginsize = 40;
+fontsize = 12;
+//globalurl = "http://www.trashrobot.org/qrcode.html";
+globalurl = window.location.href.split("qrcode.html")[0];
+qrcode = new QRCode(document.getElementById("qrcode"), {
+	text: globalurl,
+	width: codesquaresize,
+	height: codesquaresize,
+	colorDark : "#000000",
+	colorLight : "#ffffff",
+	correctLevel : QRCode.CorrectLevel.H
+});
+
+</script>
+<style>
+body{
+    background-color:#303030;
+    overflow:hidden;
+    
+}
+#board{
+    position:absolute;
+    background-color:#9f8767;
+    font-family:Comic Sans MS;
+}
+#backgroundimage{
+    position:absolute;
+    left:0px;
+    top:0px;
+    overflow:hidden;
+    z-index:-1;
+}
+#qrcode{
+    position:absolute;
+    top:0px;
+    right:0px;
+    z-index:1;
+}
+#homelink{
+    position:absolute;
+    left:5px;
+    top:5px;
+    color:#0000ff;
+     font-family:Comic Sans MS;
+}
+@media only screen and (orientation: portrait) {
+}
+
+</style>
+</body>
+</html>
