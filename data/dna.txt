@@ -9,6 +9,8 @@
         "draw.html",
         "einstein.html",
         "fork.html",
+        "freebox.html",
+        "freebox.txt",
         "geometron.js",
         "hypercube.html",
         "images.html",

@@ -1,0 +1,6 @@
+[
+    "<a href = \"index.html\">HOME</a>",
+    "<a href = \"hypercube.html\">HYPERCUBE</a>",
+    "FREE STUFF!  POST WHAT YOUR'E GIVING OUT FOR FREE OR WHAT YOU NEED SOMEONE TO DONATE FOR FREE!",
+    "Red x's delete.💥 button resets feed.  🔄 or enter refreshes feed to see what other people have posted."
+]

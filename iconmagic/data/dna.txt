@@ -4,12 +4,16 @@
         "artist.html",
         "board.html",
         "board.txt",
+        "draw.html",
         "fashionquest.html",
+        "fork.html",
         "geometron.js",
         "glyph.txt",
+        "hypercube.html",
         "icon-vr.html",
+        "images.html",
         "index.html",
-        "mixtape.html",
+        "mutate.html",
         "operator.html",
         "qrcode-page.html",
         "qrcode.html",
@@ -18,6 +22,7 @@
         "square.html",
         "trashmagic.css",
         "trashmagic.js",
+        "trashrobot.html",
         "webdestroyer.html",
         "webeditor.html"
     ],
@@ -26,9 +31,11 @@
         "dna.txt",
         "icon.txt",
         "iconfeed.txt",
-        "imagefeed.txt"
+        "imagefeed.txt",
+        "lineArrayStack.txt"
     ],
     "php": [
+        "copy.txt",
         "deletefile.txt",
         "dir.txt",
         "dnagenerator.txt",
@@ -36,8 +43,10 @@
         "fileloader.txt",
         "filesaver.txt",
         "mkdir.txt",
+        "rdelete.txt",
         "replicator.txt",
-        "text2php.txt"
+        "text2php.txt",
+        "uploadimage.txt"
     ],
     "iconsymbols": [
         "abcfont.svg",
