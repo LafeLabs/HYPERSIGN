@@ -33,6 +33,8 @@
         "shittr.html",
         "toilets.html",
         "toilets.txt",
+        "trashfeed.html",
+        "trashfeed.txt",
         "trashmagic.css",
         "trashmagic.js",
         "trashrobot.html",
