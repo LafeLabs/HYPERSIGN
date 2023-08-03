@@ -1,13 +1,13 @@
 [
-    "<a href= \"toilets.html\">FREE TOILETS!</a>",
-    "<a href= \"prizes.html\">TRASH MAGIC PRIZES</a>",
+    "<a href = \"index.html\">HOME</a>",
     "<a href= \"freebox.html\">FREEBOX</a>",
+    "<a href= \"toilets.html\">FREE TOILETS!</a>",
     "<a href= \"community.html\">COMMUNITY CONTACTS AND LINKS</a>",
+    "<a href= \"prizes.html\">TRASH MAGIC PRIZES</a>",
     "<a href= \"resources.html\">RESOURCES</a>",
     "<a href= \"places.html\">PLACES</a>",
     "<a href= \"actions.html\">ACTIONS</a>",
     "<a href= \"needs.html\">NEEDS</a>",
-    "<a href = \"index.html\">HOME</a>",
     "<a href = \"hypercube.html\">HYPERCUBE</a>",
     "TO ENTER EDIT MODE HIT THE EDIT BUTTON! IN EDIT MODE, TYPE A POST IN THE PINK BOX, DELETE WITH RED X, RESET WITH !💥! AND RELOAD FEED WITH  🔄"
 ]

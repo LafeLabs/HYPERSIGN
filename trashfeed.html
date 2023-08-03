@@ -135,6 +135,48 @@ function redraw(){
                 boxindex = parseInt(this.parentElement.id.substring(3));
                 deletetext();
             }
+
+            var upbutton = document.createElement("SPAN");
+            upbutton.className = "deletebutton";
+            upbutton.innerHTML = "MOVE UP";
+            newbox.appendChild(upbutton);
+            upbutton.onclick = function(){
+                boxindex = parseInt(this.parentElement.id.substring(3));
+                var newfeed = [];
+                for(var index = 0;index < boxindex - 1;index++){
+                    newfeed.push(feed[index]);
+                }
+                newfeed.push(feed[boxindex]);
+                newfeed.push(feed[boxindex - 1]);
+                for(var index = boxindex + 1;index < feed.length;index++){
+                    newfeed.push(feed[index]);
+                }
+                feed = newfeed;
+                redraw();
+                savejson();
+            }
+
+            var downbutton = document.createElement("SPAN");
+            downbutton.className = "deletebutton";
+            downbutton.innerHTML = "MOVE DOWN";
+            newbox.appendChild(downbutton);
+            downbutton.onclick = function(){
+                boxindex = parseInt(this.parentElement.id.substring(3));
+                var newfeed = [];
+                for(var index = 0;index < boxindex;index++){
+                    newfeed.push(feed[index]);
+                }
+                newfeed.push(feed[boxindex + 1]);
+                newfeed.push(feed[boxindex]);
+                for(var index = boxindex + 2;index < feed.length;index++){
+                    newfeed.push(feed[index]);
+                }
+                feed = newfeed;
+                redraw();
+                savejson();
+            }
+            
+            
         }
 
         var textspan = document.createElement("span");
@@ -203,6 +245,12 @@ textfieldindex = 0;
 
 document.getElementById("textinput").onkeydown = function(a) {
     var charCode = a.keyCode || a.which;
+    if(charCode == 033){
+        editMode = false;
+        document.getElementById("header").style.display = "none";
+        document.getElementById("editbutton").style.display ="block";
+        loadfeed();
+    }
     if(charCode == 015){
             loadfeed();
     }
