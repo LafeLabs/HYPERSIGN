@@ -58,6 +58,8 @@
 
 //for other feeds, change the name of the feed file to [feedname].txt:
 feedfilename = "trashfeed.txt";
+//CHANG ETHE NAME OF THE FEED HERE AS WELL:
+feedname = "TRASH FEED";
 
 //add a default feed here for any given feed instance:
 
@@ -116,7 +118,7 @@ function savejson(){
 boxindex = 0;
 
 function redraw(){
-    document.getElementById("feed").innerHTML = "";
+    document.getElementById("feed").innerHTML = "<h1>" + feedname + "</h1>";
     boxes= [];
     for(var index = 0;index < feed.length;index++){
         var newbox = document.createElement("DIV");
@@ -250,6 +252,9 @@ body{
 }
 a{
     color:blue;
+}
+H1{
+    TEXT-ALIGN:CENTER;
 }
 .box{
     border:solid;

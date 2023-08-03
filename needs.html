@@ -17,7 +17,7 @@
     -->
     
 
-<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAZ4efAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAERERAAABERERERABERAREREQAREREQERERARERERABERAREAABEQARARAAEQAREBABABEREAEQABEREREREREAEREREREREQARERERERERABEQAREAERABARABEQAREBEAEREREREAERABEREREAEREQAREREAEREREAAAAAEREAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAZ4efAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEREREREREREREAAAAAAREREQEREREBERERAQEBAQEREREBAQEBAREREQEBAQEBERARAQEBAQEQEAEBAQEBARAAEQEBAQEBEBERAQEBAQEREREBERERAREREAAAAAAAEREQERERERARERAAAAAAABEREREBEQEREREREQAAAREREAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
 
     
     <!--Stop Google:-->
@@ -44,6 +44,7 @@
 -->
 </head>
 <body>    
+<div id = "editbutton" ><span style = "color:red;">!!</span>EDIT<span style = "color:red">!!</span></div>
 <div id = "header">
     <!--
     <a id = "uplink" href = "index.html"><img src = "iconsymbols/home.svg"/></a>
@@ -55,6 +56,26 @@
 <div id = "feed"></div>
 <script>
 
+//for other feeds, change the name of the feed file to [feedname].txt:
+feedfilename = "needs.txt";
+//CHANG ETHE NAME OF THE FEED HERE AS WELL:
+feedname = "NEEDS:";
+
+//add a default feed here for any given feed instance:
+
+resetfeed = [
+    "needed: shredder to turn scrap cardboard into more easily compostable material",
+    "needed: free food",
+    "<a href = \"index.html\">HOME</a>",
+    "<a href = \"hypercube.html\">HYPERCUBE</a>",    
+    "TO ENTER EDIT MODE HIT THE EDIT BUTTON! IN EDIT MODE, TYPE A POST IN THE PINK BOX, DELETE WITH RED X, RESET WITH !💥! AND RELOAD FEED WITH  🔄"
+];
+
+
+editMode = false;
+document.getElementById("header").style.display = "none";
+
+
 feed = [];
 
 var httpc = new XMLHttpRequest();
@@ -64,7 +85,7 @@ var httpc = new XMLHttpRequest();
         redraw();
     }
 };
-httpc.open("GET", "fileloader.php?filename=needs.txt", true);
+httpc.open("GET", "fileloader.php?filename=" + feedfilename, true);
 httpc.send();
 
 
@@ -82,7 +103,7 @@ document.getElementById("textinput").onchange = function(){
             document.getElementById("textinput").value = "";    
         }
     };
-    httpc.open("GET", "fileloader.php?filename=needs.txt", true);
+    httpc.open("GET", "fileloader.php?filename=" + feedfilename, true);
     httpc.send();   
 }
 
@@ -93,28 +114,31 @@ function savejson(){
     var httpc2 = new XMLHttpRequest();
     httpc2.open("POST", url, true);
     httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc2.send("data="+encodeURIComponent(JSON.stringify(feed,null,"    "))+"&filename=needs.txt");//send text to filesaver.php
+    httpc2.send("data="+encodeURIComponent(JSON.stringify(feed,null,"    "))+"&filename=" + feedfilename);//send text to filesaver.php
 }
 
 boxindex = 0;
 
 function redraw(){
-    document.getElementById("feed").innerHTML = "";
+    document.getElementById("feed").innerHTML = "<h1>" + feedname + "</h1>";
     boxes= [];
     for(var index = 0;index < feed.length;index++){
         var newbox = document.createElement("DIV");
         document.getElementById("feed").appendChild(newbox);
         newbox.className = "box";
         newbox.id = "box" + index.toString();
-        var deletebutton = document.createElement("SPAN");
-        deletebutton.className = "deletebutton";
-        deletebutton.innerHTML = "X";
-        
-        newbox.appendChild(deletebutton);
-        deletebutton.onclick = function(){
-            boxindex = parseInt(this.parentElement.id.substring(3));
-            deletetext();
+
+        if(editMode){
+            var deletebutton = document.createElement("SPAN");
+            deletebutton.className = "deletebutton";
+            deletebutton.innerHTML = "X";
+            newbox.appendChild(deletebutton);
+            deletebutton.onclick = function(){
+                boxindex = parseInt(this.parentElement.id.substring(3));
+                deletetext();
+            }
         }
+
         var textspan = document.createElement("span");
         textspan.className = "textspan";
         textspan.innerHTML = feed[index];
@@ -142,7 +166,7 @@ function deletetext(){
             savejson();
         }
     };
-    httpc.open("GET", "fileloader.php?filename=needs.txt", true);
+    httpc.open("GET", "fileloader.php?filename=" + feedfilename, true);
     httpc.send();            
 }
 
@@ -154,17 +178,12 @@ function loadfeed(){
                 redraw();
             }
         };
-        httpc.open("GET", "fileloader.php?filename=services.txt", true);
+        httpc.open("GET", "fileloader.php?filename=" + feedfilename, true);
         httpc.send();            
 
 }
 
-resetfeed = [
-    "<a href = \"index.html\">HOME</a>",
-    "<a href = \"hypercube.html\">HYPERCUBE</a>",    
-    "WHAT DO YOU NEED? POST NEEDS HERE!",
-    "Type a post in the box and hit enter to post to the feed. Red x's delete.💥 button resets feed.  Let the chaos ensue. 🔄 or enter refreshes feed to see what other people have posted."
-];
+
 
 document.getElementById("nuke").onclick = function(){
     feed = resetfeed;
@@ -173,6 +192,9 @@ document.getElementById("nuke").onclick = function(){
 }
 
 document.getElementById("refresh").onclick = function(){
+    editMode = false;
+    document.getElementById("header").style.display = "none";
+    document.getElementById("editbutton").style.display ="block";
     loadfeed();
 }
 
@@ -215,6 +237,14 @@ document.getElementById("textinput").onkeydown = function(a) {
 }
 
 
+document.getElementById("editbutton").onclick = function(){
+    this.style.display = "none";
+    editMode = true;
+    loadfeed();
+    document.getElementById("header").style.display = "block";
+    document.getElementById("textinput").select();
+}
+
 </script>
 <style>
 body{
@@ -224,6 +254,9 @@ body{
 }
 a{
     color:blue;
+}
+H1{
+    TEXT-ALIGN:CENTER;
 }
 .box{
     border:solid;
@@ -314,6 +347,25 @@ a{
 }
 #uplink img{
     width:40px;
+}
+#editbutton{
+    position:absolute;
+    z-index:2;
+    font-size:50px;
+    text-align:center;
+    top:5px;
+    border-width:5px;
+    border-radius:10px;
+    left:40%;
+    right:40%;
+    border:solid;
+    cursor:pointer;
+}
+#editbutton:hover{
+    background-color:green;
+}
+#editbutton:active{
+    background-color:yellow;
 }
 
 </style>
