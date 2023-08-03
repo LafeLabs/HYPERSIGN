@@ -1,6 +1,8 @@
 {
     "html": [
         "README.md",
+        "actions.html",
+        "actions.txt",
         "board.html",
         "board.txt",
         "cards.html",
