@@ -1,0 +1,7 @@
+[
+    "<a href = \"index.html\">HOME</a>",
+    "free pants! contact trash_robot on tiktok to get free pants!",
+    "i am giving away free cardboard cubes! contact trash_robot on tiktok to get a cube dropped somewhere where you can pick it up to start your own trash feed!",
+    "<a href = \"hypercube.html\">HYPERCUBE</a>",
+    "TO ENTER EDIT MODE HIT THE EDIT BUTTON! IN EDIT MODE, TYPE A POST IN THE PINK BOX, DELETE WITH RED X, RESET WITH !💥! AND RELOAD FEED WITH  🔄"
+]

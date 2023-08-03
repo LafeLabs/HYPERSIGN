@@ -1,0 +1,6 @@
+[
+    "there is a excellent collection of clean(!) porta potties near the pavilion at the top of the park in Cheesman park in Denver Colorado! marvel at the amount of free porta potty access here!",
+    "<a href = \"index.html\">HOME</a>",
+    "<a href = \"hypercube.html\">HYPERCUBE</a>",
+    "TO ENTER EDIT MODE HIT THE EDIT BUTTON! IN EDIT MODE, TYPE A POST IN THE PINK BOX, DELETE WITH RED X, RESET WITH !💥! AND RELOAD FEED WITH  🔄"
+]

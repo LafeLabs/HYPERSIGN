@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <!-- 
+
+        EVERYTHING IS PHYSICAL 
+        EVERYTHING IS FRACTAL
+        EVERYTHING IS RECURSIVE
+        NO MONEY 
+        MO MINING 
+        NO PROPERTY
+        LOOK AT THE INSECTS
+        LOOK AT THE FUNGI
+        LANGUAGE IS HOW THE MIND PARSES REALITY
+
+    -->
+    <title>CHAOS DRAW!</title>
+
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAZ4efAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEREREQEREREREREQABEREREQABEBEAARERABEQERABEREBARARAQEREREQEBAREREQEREAAREQEQAAAAAAAAABEBERAAEREBERERAQEBEREREBARARAQEREQAREBEQARERAAEQEQABERERERARERERERERAAEREREREREQEREREAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
+
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+
+<script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+</head>
+<body>
+<div class  ="button" id = "deletebutton">DELETE</div>
+<div class  ="button" id = "clearbutton">CLEAR</div>
+
+<div id = "qrcode"></div>
+
+
+<a style = "position:absolute;right:60%;bottom:1.5em;z-index:1;width:4em;text-align:center;color:blue;font-size:3em;font-family:Comic Sans MS" href ="index.html">HOME</a>
+
+<a style = "position:absolute;left:40%;bottom:0px;z-index:1;width:14em;text-align:center;color:blue;font-size:3em;font-family:Comic Sans MS" href ="hypercube.html">GEOMETRON HYPERCUBE</a>
+
+
+<script>
+lineArrayStack = [];
+lineArray =[];
+
+        
+        
+function setup() {
+    createCanvas(innerWidth, innerHeight);
+    background(159,135,103);
+    stroke(0);
+    strokeWeight(16);
+    var httpcjson = new XMLHttpRequest();
+    httpcjson.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            lineArrayStack = JSON.parse(this.responseText);
+            
+            for(var lineindex = 0;lineindex < lineArrayStack.length;lineindex++){
+                for(var pointindex = 1;pointindex < lineArrayStack[lineindex].length;pointindex++){
+                    line(lineArrayStack[lineindex][pointindex - 1].x,lineArrayStack[lineindex][pointindex - 1].y,lineArrayStack[lineindex][pointindex].x,lineArrayStack[lineindex][pointindex].y);
+                }
+            }
+        }
+    };
+    httpcjson.open("GET", "fileloader.php?filename=data/lineArrayStack.txt", true);
+    httpcjson.send();
+
+}
+
+inLine = false;
+function draw() {
+  stroke(0);
+  if (mouseIsPressed === true) {
+    line(mouseX, mouseY, pmouseX, pmouseY);
+    inLine = true;
+    var r  ={};
+    r.x = mouseX;
+    r.y = mouseY;
+    lineArray.push(r);
+  }
+  else{
+      if(inLine){
+//          console.log(lineArray);
+          lineArrayStack.push(lineArray);
+          savejson(); 
+          lineArray = [];
+      }
+      inLine = false;
+  }
+}
+
+
+function savejson(){
+    var url = "filesaver.php";        
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(JSON.stringify(lineArrayStack,null,"    "))+"&filename=data/lineArrayStack.txt");//send text to filesaver.php
+}
+
+document.getElementById("deletebutton").onclick = function(){
+    lineArrayStack.pop();
+    lineArrayStack.pop();
+    savejson();
+    clear();
+    background(159,135,103);
+    for(var lineindex = 0;lineindex < lineArrayStack.length;lineindex++){
+        for(var pointindex = 1;pointindex < lineArrayStack[lineindex].length;pointindex++){
+            line(lineArrayStack[lineindex][pointindex - 1].x,lineArrayStack[lineindex][pointindex - 1].y,lineArrayStack[lineindex][pointindex].x,lineArrayStack[lineindex][pointindex].y);
+        }
+    }
+}
+
+
+
+document.getElementById("clearbutton").onclick = function(){
+    lineArrayStack = [];
+    savejson();
+    clear();
+    background(159,135,103);
+}
+
+
+codesquaresize = 170;
+marginsize = 40;
+fontsize = 12;
+//globalurl = "http://www.trashrobot.org/qrcode.html";
+globalurl = window.location.href;
+qrcode = new QRCode(document.getElementById("qrcode"), {
+	text: globalurl,
+	width: codesquaresize,
+	height: codesquaresize,
+	colorDark : "#000000",
+	colorLight : "#ffffff",
+	correctLevel : QRCode.CorrectLevel.H
+});
+
+
+
+</script>
+<style>
+body{
+    overflow:hidden;
+}
+canvas{
+    z-index:-1;
+}
+.button{
+    position:absolute;
+    top:0px;
+    cursor:pointer;
+    width:6em;
+    z-index:100;
+    background-color:white;
+    border:solid;
+    border-color:red;
+    color:red;
+    text-align:center;
+    font-size:2em;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
+}
+#deletebutton{
+    left:0px;
+}
+#clearbutton{
+    right:0px;
+}
+#qrcode{
+    position:absolute;
+    right:5px;
+    bottom:5px;
+    z-index:2;
+    border:solid;
+    border-width:5px;
+    border-color:white;
+}
+</style>
+</body>
+</html>

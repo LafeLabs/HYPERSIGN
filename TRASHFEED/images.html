@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAZ4efAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEREREQEREREREREQABEREREQABEBEAARERABEQERABEREBARARAQEREREQEBAREREQEREAAREQEQAAAAAAAAABEBERAAEREBERERAQEBEREREBARARAQEREQAREBEQARERAAEQEQABERERERARERERERERAAEREREREREQEREREAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
+
+</head>
+<body>   
+
+<a href = "hypercube.html" id = "homelink">GEOMETRON HYPERCUBE</a>
+
+
+<form id = "uploadform" style = "top:10px;position:absolute;right:10px;z-index:2" action="uploadimage.php" method="post" enctype="multipart/form-data">
+                Select image to upload:
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <input type="submit" value="Upload Image" name="submit">
+</form>
+        
+<div id = "mainbox">
+    <img id = "mainimage"/>        
+    <canvas  id = "maincanvas"></canvas>
+<br>
+
+
+<table>
+    <tr>
+        <td>width[px]:</td>
+        <td><input id = "widthinput"/></td>
+    </tr>
+    <tr>
+        <td>Image URL:</td>
+        <td><input id = "imageurl"/></td>
+    </tr>
+    <tr>
+        <td>RAW png code:</td>
+        <td><input id = "rawinput"/></td>
+    </tr>
+</table>
+
+</div>
+<div id  = "imagescroll">
+</div>
+<script>
+foo = "";
+document.getElementById("mainimage").onload = function() {
+    canvas = document.getElementById("maincanvas");
+    ctx = canvas.getContext("2d");
+    canvas.width = this.width;
+    canvas.height = this.height;
+    img = document.getElementById("mainimage");
+    img.crossOrigin = 'Anonymous';
+  
+    ctx.drawImage(img, 0,0,this.width,this.height);
+    document.getElementById("rawinput").value = canvas.toDataURL();
+//    foo = canvas.toDataURL('image/jpeg', 0.1);
+    
+};
+
+
+
+upuploadImages = [];
+var httpc9 = new XMLHttpRequest();
+    httpc9.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        upuploadImages = JSON.parse(this.responseText);
+        for(var index = upuploadImages.length - 1;index >= 0;index--) {
+            
+            var newbox = document.createElement("DIV");
+            newbox.classList.add("imagebox");         
+            
+                    var deletespan = document.createElement("SPAN");
+            deletespan.innerHTML = "X";
+            deletespan.classList.add("deletespan");
+            deletespan.onclick = function(){
+                //delete the parent div of the image
+                //delete the file
+                var filename = this.parentElement.getElementsByClassName("filelabel")[0].innerHTML; 
+                var httpc = new XMLHttpRequest();
+                var url = "deletefile.php";         
+                httpc.open("POST", url, true);
+                httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+                httpc.send("filename=trashmagic/" + filename);//send text to deletefile.php
+                this.parentElement.parentElement.removeChild(this.parentElement);
+            }
+            
+            newbox.appendChild(deletespan);
+    
+            var newdiv = document.createElement("DIV");
+            newdiv.innerHTML = upuploadImages[index];
+            newdiv.className = "filelabel";
+            newbox.appendChild(newdiv);
+        
+            
+            document.getElementById("imagescroll").appendChild(newbox);
+            var newimg = document.createElement("IMG");
+            newimg.src = "trashmagic/" + upuploadImages[index];
+            newimg.classList.add("uploadimage");
+            newimg.classList.add("button");
+            newbox.appendChild(newimg);
+            newimg.onclick = function() {
+                var localurl = "trashmagic" + this.src.split("trashmagic")[1];
+                document.getElementById("imageurl").value = localurl;
+                document.getElementById("mainimage").src = localurl;
+            }
+            
+            
+        }
+    }
+};
+httpc9.open("GET", "dir.php?filename=trashmagic", true);
+httpc9.send();
+
+document.getElementById("imageurl").onchange = function(){
+    document.getElementById("mainimage").src = this.value;
+}
+
+width = 150;
+document.getElementById("mainimage").style.width = width.toString() + "px";
+document.getElementById("widthinput").value = width.toString();
+
+document.getElementById("widthinput").onchange = function(){
+    width = parseInt(this.value);
+    document.getElementById("mainimage").style.width = width.toString() + "px";
+}
+
+
+
+</script>
+<style>
+body{
+    background-color:#9f8767;
+    font-family:Comic Sans MS;
+}
+#homelink{
+    position:absolute;
+    left:0px;
+    top:50%;
+    z-index:2;
+    color:blue;
+    font-size:1.5em;
+}
+#mainbox{
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:70%;
+    overflow:scroll;
+    height:100%;
+}
+#mainimage{
+    width:40%;
+}
+.imagebox{
+    border-bottom:solid;
+    margin-bottom:2em;
+    margin-top:2em;
+    padding-bottom:2em;
+    padding-top:2em;
+}
+.deletespan{
+    color:red;
+    border:solid;
+    border-color:red;
+    border-radius:0.5em;
+    padding: 1em 1em 1em 1em;
+    cursor:pointer;
+}
+.deletespan:hover{
+    background-color:#ff000080;
+}
+.filelabel{
+    display:none;
+}
+#imagescroll{
+    position:absolute;
+    right:0px;
+    top:3em;
+    overflow:scroll;
+    width:70%;
+    height:95%;
+}
+#imagescroll img{
+    max-width:80%;
+    display:block;
+    margin:auto;
+    margin-top:1em;
+}
+.button{
+    cursor:pointer;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
+}
+
+</style>
+</body>
+</html>
